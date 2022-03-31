@@ -5,9 +5,9 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: SentencePress
-      POSTGRES_PASSWORD: SentencePress
-      POSTGRES_DB: SentencePress
+      POSTGRES_USER: sentencePress
+      POSTGRES_PASSWORD: sentencePress
+      POSTGRES_DB: sentencePress
     volumes:
       - dbdata:/var/lib/postgresql/data/
   loan-adminer:
