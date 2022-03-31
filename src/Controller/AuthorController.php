@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomepageController extends AbstractController
+class AuthorController extends AbstractController
 {
-    #[Route('/', name: 'app_homepage')]
+    #[Route('/author', name: 'app_author')]
     public function index(): Response
     {
-        return $this->render('public/homepage/index.html.twig', [
-            'controller_name' => 'HomepageController',
+        return $this->render('public/author/index.html.twig', [
+            'controller_name' => 'AuthorController',
         ]);
     }
 }
