@@ -35,3 +35,7 @@ Enfin, lancer le serveur et inscrivez vous:
 
 ```symfony server:start -d```
 
+## Acces
+Acceder à la Base de donnée depuis le navigateur
+
+```http://127.0.0.1:18080/?pgsql=postgres&username=sentencePress&db=app&ns=public&select=user```
