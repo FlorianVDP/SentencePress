@@ -91,30 +91,48 @@ html body {
   display: none;
 }
 
-strong {
+/*
+strong{
   font-weight: 500;
 }
-
-em {
+em{
   font-style: italic;
 }
-
-u {
+u{
   text-decoration: underline;
 }
-
-s {
+s{
   text-decoration: grammar-error;
 }
+blockquote{
 
-h1 {
+}
+pre{
+
+}
+h1{
   font-size: 2em;
+  font-weight: 500;
 }
-
-h2 {
+h2{
   font-size: 1.5em;
+  font-weight: 500;
 }
+h3{
+  color: $mainColor;
+  font-weight: 500;
+}
+ul{
+  li{
 
+  }
+}
+ol{
+  li{
+
+  }
+}
+*/
 header {
   display: flex;
   align-items: center;
