@@ -87,6 +87,52 @@ html body {
   justify-content: space-between;
   min-height: 100vh;
 }
+.displayNone {
+  display: none;
+}
+
+/*
+strong{
+  font-weight: 500;
+}
+em{
+  font-style: italic;
+}
+u{
+  text-decoration: underline;
+}
+s{
+  text-decoration: grammar-error;
+}
+blockquote{
+
+}
+pre{
+
+}
+h1{
+  font-size: 2em;
+  font-weight: 500;
+}
+h2{
+  font-size: 1.5em;
+  font-weight: 500;
+}
+h3{
+  color: $mainColor;
+  font-weight: 500;
+}
+ul{
+  li{
+
+  }
+}
+ol{
+  li{
+
+  }
+}
+*/
 header {
   display: flex;
   align-items: center;
@@ -98,6 +144,7 @@ header div.wrapper-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 1080px;
 }
@@ -183,7 +230,7 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: #23282d;
-  padding: 0 1em;
+  padding: 2em 1em;
 }
 footer div.wrapper-footer {
   display: flex;
