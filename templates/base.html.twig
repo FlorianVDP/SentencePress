@@ -3,12 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>SentencePress | {% block title %}{% endblock %}</title>
         <link rel="icon" type="image/png" href="./assets/images/logos/logo-sentencepress-blanc.png"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="./assets/styles/styles.css">
         <script src="./assets/javascripts/"></script>
     </head>
+    <body>
     <header>
         <div class="wrapper-header">
             <a href="{{ path('app_homepage') }}" class="logo"><img src="./assets/images/logos/logo-sentencepress-long-blanc.svg" alt="Logo SentencePress"></a>
@@ -31,7 +32,11 @@
             </nav>
         </div>
     </header>
-    <body>
         {% block body %}{% endblock %}
+    <footer>
+        <div class="wrapper-footer">
+            LE FOOTER
+        </div>
+    </footer>
     </body>
 </html>

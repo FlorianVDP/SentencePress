@@ -78,6 +78,14 @@ table {
 
 html {
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+html body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 header {
   display: flex;
@@ -168,6 +176,21 @@ header div.wrapper-header nav ul li a {
 header div.wrapper-header nav ul li a:hover, header div.wrapper-header nav ul li a:focus {
   transition: all ease-in 150ms;
   background-color: #0d0f10;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #23282d;
+  padding: 0 1em;
+}
+footer div.wrapper-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1080px;
 }
 
 /*# sourceMappingURL=styles.css.map */

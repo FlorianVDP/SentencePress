@@ -1,6 +1,12 @@
 html{
   font-family: $mainFont;
+  display: flex;
+  flex-direction: column;
   body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
     section{
       .wrapper-section{
 
