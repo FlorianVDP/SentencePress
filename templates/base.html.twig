@@ -14,7 +14,16 @@
             <a href="{{ path('app_homepage') }}" class="logo"><img src="./assets/images/logos/logo-sentencepress-long-blanc.svg" alt="Logo SentencePress"></a>
             <nav class="menu">
                 <ul>
-                    <li class="menu-item"><a href="{{ path('app_homepage') }}" title="Aller à : Item 1">Item 1</a></li>
+                    <li class="menu-item sub-menu-parent">
+                        <a href="{{ path('app_homepage') }}" title="Aller à : Item 1">Item 1</a>
+                        <ul class="sub-menu">
+                            <li class="sub-menu-item"><a href="{{ path('app_homepage') }}" title="Aller à : Item 11">Item 11</a></li>
+                            <li class="sub-menu-item"><a href="{{ path('app_homepage') }}" title="Aller à : Item 12">Item 12</a></li>
+                            <li class="sub-menu-item"><a href="{{ path('app_homepage') }}" title="Aller à : Item 13">Item 13</a></li>
+                            <li class="sub-menu-item"><a href="{{ path('app_homepage') }}" title="Aller à : Item 14">Item 14</a></li>
+                            <li class="sub-menu-item"><a href="{{ path('app_homepage') }}" title="Aller à : Item 15">Item 15</a></li>
+                        </ul>
+                    </li>
                     <li class="menu-item"><a href="{{ path('app_homepage') }}" title="Aller à : Item 2">Item 2</a></li>
                     <li class="menu-item"><a href="{{ path('app_homepage') }}" title="Aller à : Item 3">Item 3</a></li>
                     <li class="menu-item login"><a href="{{ path('app_homepage') }}" title="Aller à : Item 4"><span class="material-icons">login</span>Connexion</a></li>

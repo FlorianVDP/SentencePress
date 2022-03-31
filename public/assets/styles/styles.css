@@ -124,6 +124,41 @@ header div.wrapper-header nav ul li.login a:hover, header div.wrapper-header nav
   transition: all ease-in 150ms;
   background-color: #0097d4;
 }
+header div.wrapper-header nav ul li.sub-menu-parent {
+  position: relative;
+}
+header div.wrapper-header nav ul li.sub-menu-parent ul.sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #0d0f10;
+  transform: translateY(10px);
+  visibility: hidden;
+  opacity: 0;
+}
+header div.wrapper-header nav ul li.sub-menu-parent ul.sub-menu li.sub-menu-item {
+  width: 100%;
+}
+header div.wrapper-header nav ul li.sub-menu-parent ul.sub-menu li.sub-menu-item a {
+  width: 100%;
+  box-sizing: border-box;
+}
+header div.wrapper-header nav ul li.sub-menu-parent ul.sub-menu li.sub-menu-item a:hover, header div.wrapper-header nav ul li.sub-menu-parent ul.sub-menu li.sub-menu-item a:focus {
+  transition: all ease-in 150ms;
+  background-color: #0085ba;
+}
+header div.wrapper-header nav ul li.sub-menu-parent:hover a, header div.wrapper-header nav ul li.sub-menu-parent:focus a, header div.wrapper-header nav ul li.sub-menu-parent:focus-within a {
+  background-color: #0d0f10;
+}
+header div.wrapper-header nav ul li.sub-menu-parent:hover ul.sub-menu, header div.wrapper-header nav ul li.sub-menu-parent:focus ul.sub-menu, header div.wrapper-header nav ul li.sub-menu-parent:focus-within ul.sub-menu {
+  transition: all ease-in 150ms;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+}
 header div.wrapper-header nav ul li a {
   color: #ffffff;
   text-decoration: none;
