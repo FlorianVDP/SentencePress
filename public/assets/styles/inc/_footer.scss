@@ -1,0 +1,14 @@
+footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $gris;
+  padding: 0 1em;
+  div.wrapper-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: $maxWidth;
+  }
+}

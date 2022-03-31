@@ -42,6 +42,50 @@ header{
               }
             }
           }
+          &.sub-menu-parent{
+            position: relative;
+            a{
+
+            }
+            ul.sub-menu{
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 200px;
+              //display: none;
+              flex-direction: column;
+              justify-content: flex-start;
+              background-color: darken($gris, 10);
+              transform: translateY(10px);
+              visibility: hidden;
+              opacity: 0;
+              //box-sizing: border-box;
+              li.sub-menu-item{
+                width: 100%;
+                //box-sizing: border-box;
+                a{
+                  width: 100%;
+                  box-sizing: border-box;
+                  &:hover, &:focus{
+                    transition: all ease-in 150ms;
+                    background-color: $mainColor;
+                  }
+                }
+              }
+            }
+            &:hover, &:focus, &:focus-within{
+              a{
+                background-color: darken($gris, 10);
+              }
+              ul.sub-menu{
+                transition: all ease-in 150ms;
+                //display: flex;
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0px);
+              }
+            }
+          }
           a{
             color: $blanc;
             text-decoration: none;
