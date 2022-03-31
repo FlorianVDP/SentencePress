@@ -157,6 +157,9 @@
     "psr/log": {
         "version": "3.0.0"
     },
+    "scssphp/scssphp": {
+        "version": "v1.10.2"
+    },
     "sebastian/cli-parser": {
         "version": "1.0.1"
     },
