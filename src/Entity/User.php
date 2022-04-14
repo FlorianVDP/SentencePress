@@ -28,7 +28,7 @@ class User
     #[ORM\Column(type: 'string', length: 255)]
     private $role;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'date')]
     private $birth_date;
 
     #[ORM\OneToMany(mappedBy: 'b_user', targetEntity: Comment::class)]
