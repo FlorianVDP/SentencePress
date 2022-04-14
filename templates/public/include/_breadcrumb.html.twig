@@ -1,0 +1,5 @@
+<div class="fil-ariane hidden lg:block text-app-xs mb-24 ">
+            <a href="{{ url(app.request.attributes.get('_route')) }}" class="hover:text-[#0085ba]"> {{ app_title }}
+            </a> >
+    <a href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"> {{ controller_name }} </a>
+</div>
