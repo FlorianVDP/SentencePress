@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Uid\Uuid;
 
 class AppUsers extends Fixture
 {
@@ -43,6 +44,9 @@ class AppUsers extends Fixture
         foreach ($dataUsers as $user){
 
             $users = new User();
+            //$uuid = Uuid::v1();
+            //dump($uuid); die();
+            //$users->setUuid("");
             $users->setName($user["name"]);
             $users->setSurname($user["surname"]);
             $users->setMail($user["mail"]);
