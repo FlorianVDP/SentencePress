@@ -1,0 +1,37 @@
+{#{% for article in articles %}#}
+    <article class="bg-slate-100 p-[2rem] border-b border-gray-border rounded-lg  shadow-lg mb-4">
+            <div class="flex justify-between items-center">
+                <span class="flex items-center text-gray-dark text-app-s lg:text-app-l">
+                <svg class="float-left mr-2 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.311 14.623">
+                    <g id="Icon_feather-calendar" data-name="Icon feather-calendar"
+                       transform="translate(-3.75 -2.25)">
+                        <path d="M5.812,6H15a1.312,1.312,0,0,1,1.312,1.312V16.5A1.312,1.312,0,0,1,15,17.811H5.812A1.312,1.312,0,0,1,4.5,16.5V7.312A1.312,1.312,0,0,1,5.812,6Z"
+                              transform="translate(0 -1.688)" fill="none" stroke="#0085ba"
+                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                        <path d="M24,3V5.625"
+                              transform="translate(-10.97 0)" fill="none" stroke="#0085ba"
+                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                        <path d="M12,3V5.625"
+                              transform="translate(-4.219 0)" fill="none" stroke="#0085ba"
+                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                        <path d="M4.5,15H16.311"
+                              transform="translate(0 -6.751)" fill="none" stroke="#0085ba"
+                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                    </g>
+                </svg>
+              <span class="text-xs"> Date </span>
+            </span>
+            </div>
+        <div class="flex items-center justify-between py-2">
+            <h3 class="mr-12">
+                <a href="#"
+                   class="font-bold text-xl"
+                   title="Lire  article">Nom de l'article </a>
+            </h3>
+            <div>
+                <span class="text-xs mr-2"> Categorie </span> <span  class="text-xs"> sous categorie</span>
+            </div>
+        </div>
+        <p> Extrait de l'article - making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text</p>
+    </article>
+{#{% endfor %}#}
