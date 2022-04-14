@@ -28,7 +28,6 @@ Créer la bdd en local :
 ``` php bin/console doctrine:database:create ```
 
 Faire les migrations :
-
 ```php bin/console doctrine:migrations:migrate```
 
 Enfin, lancer le serveur et inscrivez vous:
@@ -39,3 +38,11 @@ Enfin, lancer le serveur et inscrivez vous:
 Acceder à la Base de donnée depuis le navigateur
 
 ```http://127.0.0.1:18080/?pgsql=postgres&username=sentencePress&db=app&ns=public&select=user```
+
+## Commandes utiles
+
+Update forcé de la base
+```php bin/console d:s:u --force```
+
+Mettre en place les fixtures
+```php bin/console d:f:load```
