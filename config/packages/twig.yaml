@@ -2,7 +2,7 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     globals:
         app_title: '%app_title%'
-
+        menu_generator: '@App\Menu\MenuGenerator'
 when@test:
     twig:
         strict_variables: true

@@ -15,4 +15,12 @@ class CategoryController extends AbstractController
             'controller_name' => 'MaCategorie',
         ]);
     }
+
+    #[Route('/category/{slug}', name: 'app_category-{slug}')]
+    public function indexCat($slug): Response
+    {
+        return $this->render('public/category/category.html.twig', [
+            'controller_name' => 'MaCategorie',
+        ]);
+    }
 }
