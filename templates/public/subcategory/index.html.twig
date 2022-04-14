@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SubcategoryController!{% endblock %}
+{% block title %} Sous catégorie{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="container mx-[4%] max-w-none md:mx-[10%] lg:mx-[16%] w-auto mt-[0rem] lg:mt-12 font-Asap text-gray-dark text-app-l leading-normal ">
+        {{ include('public/include/_breadcrumb.html.twig') }}
+        {# à modifier ici breadcrumb personnalisé car home > categorie  > sous categorie et non direct de home #}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/clemencelarrouy/Desktop/symfo-cours/SentencePress/src/Controller/SubcategoryController.php'|file_link(0) }}">src/Controller/SubcategoryController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/clemencelarrouy/Desktop/symfo-cours/SentencePress/templates/subcategory/index.html.twig'|file_link(0) }}">templates/subcategory/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+        <div class="presentation mb-16">
+            <h1 class="text-4xl  uppercase font-bold  pb-[2.5rem]"> Categorie - Titre Sous-catégorie </h1>
+            <div class="leading-[2rem]">
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </div>
+        </div>
+
+
+        <div class="mt-16">
+            <h2 class="text-2xl  uppercase font-bold  pb-[2.5rem]"> Les Articles </h2>
+            <div class="article mb-12">
+                Inclusion list Item
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
+
