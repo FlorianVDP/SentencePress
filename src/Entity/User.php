@@ -28,11 +28,14 @@ class User
     #[ORM\Column(type: 'string', length: 255)]
     private $role;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'date')]
     private $birth_date;
 
     #[ORM\OneToMany(mappedBy: 'b_user', targetEntity: Comment::class)]
     private $date;
+
+    //#[ORM\Column(type: 'uuid')]
+    //private $uuid;
 
     //#[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'b_author')]
     //private $articles;
@@ -134,6 +137,18 @@ class User
                 $date->setBUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUuid()
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid($uuid): self
+    {
+        $this->uuid = $uuid;
 
         return $this;
     }
