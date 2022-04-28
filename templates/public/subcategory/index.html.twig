@@ -1,18 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Sous catégorie{% endblock %}
-
 {% block body %}
 
     <div class="container mx-[4%] max-w-none md:mx-[10%] lg:mx-[16%] w-auto mt-[0rem] lg:mt-12 font-Asap text-gray-dark text-app-l leading-normal ">
-        {{ include('public/include/_breadcrumb.html.twig') }}
-        {# à modifier ici breadcrumb personnalisé car home > categorie  > sous categorie et non direct de home #}
+        <div class="fil-ariane block text-app-xs mb-24 ">
+            <a  href="{{ path('app_homepage') }}"  class="hover:text-[#0085ba] cursor-pointer">
+                {{ app_title }}
+            </a> >
+            <a  href="{{ path('app_category' , { slug: subcategory.category.slug }) }}"  class="hover:text-[#0085ba] cursor-pointer">
+                {{ subcategory.category.name }}
+            </a>
+            > {{ subcategory.name }}
+
+        </div>
 
 
         <div class="presentation mb-16">
-            <h1 class="text-4xl  uppercase font-bold  pb-[2.5rem]"> Categorie - Titre Sous-catégorie </h1>
+            <h1 class="text-4xl  uppercase font-bold  pb-[2.5rem]"> {{ subcategory.name }} </h1>
             <div class="leading-[2rem]">
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                {{ subcategory.description }}
             </div>
         </div>
 

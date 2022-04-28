@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Categorie{% endblock %}
+
+{% block body %}
+
+
+    <div class="container mx-[4%] max-w-none md:mx-[10%] lg:mx-[16%] w-auto mt-12 font-Asap text-gray-dark text-app-l leading-normal ">
+        <div class="fil-ariane block text-app-xs mb-24 ">
+            <a  href="{{ path('app_homepage') }}"  class="hover:text-[#0085ba] cursor-pointer">
+                {{ app_title }}
+            </a> >
+            {{ category.name }}
+        </div>
+
+
+
+        <div class="presentation mb-16">
+            <h1 class="text-4xl  uppercase font-bold  pb-[2.5rem]"> {{ category.name }} </h1>
+            <div class="leading-[2rem]">
+                {{ category.description }}
+            </div>
+        </div>
+        <div class="sous-categorie shadow">
+            <ul class="flex-wrap flex items-center flex-col lg:flex-row justify-between  py-4 px-4 lg:px-[5rem] border-t-2 rounded-b-lg gap-x-4 uppercase bg-[#0085ba] text-white">
+                {% for subCategory in category.subcategories %}
+                    <li class="pb-[0.5rem] lg:pb-[0rem]"> <a href="#"> {{ subCategory.name }} </a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+        <div class="mt-16">
+            <h2 class="text-2xl  uppercase font-bold  pb-[2.5rem]"> Les Articles en relation avec {{ category.name }} </h2>
+            <div class="article mb-12">
+
+                {{ include('public/include/_list_article.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

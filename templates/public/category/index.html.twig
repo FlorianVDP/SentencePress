@@ -1,36 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Categorie{% endblock %}
-
+{%  dump categories %}
 {% block body %}
 
-    <div class="container mx-[4%] max-w-none md:mx-[10%] lg:mx-[16%] w-auto mt-[0rem] lg:mt-12 font-Asap text-gray-dark text-app-l leading-normal ">
-        {{ include('public/include/_breadcrumb.html.twig') }}
+
+    <div class="container mx-[4%] max-w-none md:mx-[10%] lg:mx-[16%] w-auto mt-12 font-Asap text-gray-dark text-app-l leading-normal ">
+        <div class="fil-ariane block text-app-xs mb-24 ">
+            <a  href="{{ path('app_homepage') }}"  class="hover:text-[#0085ba] cursor-pointer">
+                {{ app_title }}
+            </a> > Catégories
+        </div>
 
 
-            <div class="presentation mb-16">
-                 <h1 class="text-4xl  uppercase font-bold  pb-[2.5rem]"> Titre de ma categorie </h1>
-                <div class="leading-[2rem]">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                </div>
-            </div>
-            <div class="sous-categorie shadow">
-                <ul class="flex-wrap flex items-center flex-col lg:flex-row justify-between  py-4 px-4 lg:px-[5rem] border-t-2 rounded-b-lg gap-x-4 uppercase bg-[#0085ba] text-white">
-                    <li class="pb-[0.5rem] lg:pb-[0rem]"> <a href="#"> sous cat </a></li>
-                    <li class="pb-[0.5rem] lg:pb-[0rem]"> <a href="#"> sous cat </a></li>
-                    <li class="pb-[0.5rem] lg:pb-[0rem]"> <a href="#"> sous cat </a></li>
 
+        <div class="presentation mb-16">
+            <h1 class="text-4xl  uppercase font-bold  pb-[2.5rem]"> Nos differentes Categories  </h1>
+            <div class="leading-[2rem]">
+                <ul>
+                {% for category in categories %}
+                    <li class="pb-[0.5rem] lg:pb-[0rem]"> <a href="#"> {{ category.name }} </a></li>
+                {% endfor %}
                 </ul>
-            </div>
-
-
-        <div class="mt-16">
-            <h2 class="text-2xl  uppercase font-bold  pb-[2.5rem]"> Les Articles en relation avec MaCategorie </h2>
-            <div class="article mb-12">
-
-                {{ include('public/include/_list_article.html.twig') }}
             </div>
         </div>
     </div>
-
 {% endblock %}
