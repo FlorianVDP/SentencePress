@@ -25,6 +25,9 @@ class Subcategory
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'subcategories')]
     private $category;
 
+    #[ORM\ManyToOne(targetEntity: Article::class, inversedBy: 'slug_cat')]
+    private $article;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Subcategory
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
 
         return $this;
     }
