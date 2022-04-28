@@ -21,19 +21,23 @@ class Article
     #[ORM\Column(type: 'string', length: 255)]
     private $slug;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'text')]
     private $content;
 
-    #[ORM\ManyToMany(targetEntity: author::class, inversedBy: 'articles')]
+    #[ORM\ManyToMany(targetEntity: Author::class, inversedBy: 'articles')]
     private $b_author;
 
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Comment::class)]
     private $comment;
 
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Subcategory::class)]
+    private $slug_cat;
+
     public function __construct()
     {
         $this->b_author = new ArrayCollection();
         $this->comment = new ArrayCollection();
+        $this->slug_cat = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -125,6 +129,36 @@ class Article
             // set the owning side to null (unless already changed)
             if ($comment->getArticle() === $this) {
                 $comment->setArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Subcategory>
+     */
+    public function getSlugCat(): Collection
+    {
+        return $this->slug_cat;
+    }
+
+    public function addSlugCat(Subcategory $slugCat): self
+    {
+        if (!$this->slug_cat->contains($slugCat)) {
+            $this->slug_cat[] = $slugCat;
+            $slugCat->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSlugCat(Subcategory $slugCat): self
+    {
+        if ($this->slug_cat->removeElement($slugCat)) {
+            // set the owning side to null (unless already changed)
+            if ($slugCat->getArticle() === $this) {
+                $slugCat->setArticle(null);
             }
         }
 
