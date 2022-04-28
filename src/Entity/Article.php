@@ -24,8 +24,6 @@ class Article
     #[ORM\Column(type: 'text')]
     private $content;
 
-    #[ORM\ManyToMany(targetEntity: Author::class, inversedBy: 'articles')]
-    private $b_author;
 
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Comment::class)]
     private $comment;
@@ -33,9 +31,11 @@ class Article
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Subcategory::class)]
     private $slug_cat;
 
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'articles')]
+    private $author;
+
     public function __construct()
     {
-        $this->b_author = new ArrayCollection();
         $this->comment = new ArrayCollection();
         $this->slug_cat = new ArrayCollection();
     }
@@ -77,30 +77,6 @@ class Article
     public function setContent(string $content): self
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, author>
-     */
-    public function getBAuthor(): Collection
-    {
-        return $this->b_author;
-    }
-
-    public function addBAuthor(author $bAuthor): self
-    {
-        if (!$this->b_author->contains($bAuthor)) {
-            $this->b_author[] = $bAuthor;
-        }
-
-        return $this;
-    }
-
-    public function removeBAuthor(author $bAuthor): self
-    {
-        $this->b_author->removeElement($bAuthor);
 
         return $this;
     }
@@ -161,6 +137,18 @@ class Article
                 $slugCat->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

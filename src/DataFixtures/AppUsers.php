@@ -9,37 +9,34 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppUsers extends Fixture
 {
-// POURQUOI CA MARCHE PAS LE USERPASSWORDHASHER
-    public function load(ObjectManager $manager, /*UserPasswordHasherInterface $userPasswordHasher*/): void
+    private $passwordHasher;
+
+    public function __construct(UserPasswordHasherInterface $userPasswordHasher){
+        $this->passwordHasher = $userPasswordHasher;
+    }
+
+    public function load(ObjectManager $manager): void
     {
         $dataUsers = [
             [
-                "name" => "Floriane",
+                "name" => "Florian",
                 "password" => "florian",
-                "surname" => "Beebulla",
-                "mail" => "f.vanderput@gmail.com",
+                "surname" => "Beebulle",
+                "mail" => "mrvdpflorian@gmail.com",
                 "role" => ["ROLE_ADMIN"],
                 "birth_date" => new \DateTime("09-02-1997"),
             ],
             [
-                "name" => "Clément",
+                "name" => "Clémence",
                 "password" => "clemence",
-                "surname" => "DetectiveChanyo",
+                "surname" => "DetectiveChanya",
                 "mail" => "clemence.larrouy@gmail.com",
                 "role" => ["ROLE_ADMIN"],
                 "birth_date" => new \DateTime("16-08-1993"),
             ],
             [
-                "name" => "Eliot",
-                "password" => "elisa",
-                "surname" => "eliso",
-                "mail" => "eliza.bourg@orange.fr",
-                "role" => ["ROLE_ADMIN"],
-                "birth_date" => new \DateTime("19-03-1998"),
-            ],
-            [
                 "name" => "admin",
-                "password" => "password",
+                "password" => "admin",
                 "surname" => "admin",
                 "mail" => "admin@sentencePress.com",
                 "role" => ["ROLE_ADMIN"],
@@ -52,12 +49,12 @@ class AppUsers extends Fixture
             $users->setName($user["name"]);
             $users->setSurname($user["surname"]);
             $users->setPassword($user["password"]);
-            /*$users->setPassword(
-                $userPasswordHasher->hashPassword(
+            $users->setPassword(
+                $this->passwordHasher->hashPassword(
                     $users,
                     $user["password"]
                 )
-            );*/
+            );
             $users->setEmail($user["mail"]);
             $users->setRoles($user["role"]);
             $users->setBirthdayDate($user["birth_date"]);
