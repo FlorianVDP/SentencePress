@@ -20,7 +20,7 @@ security:
             security: false
         main:
             lazy: true
-            provider: users_in_memory
+            #provider: users_in_memory
             custom_authenticator: App\Security\AppCustomAuthenticator
             #remember_me:
             #    secret: '%kernel.secret%' # required

@@ -22,9 +22,9 @@
                     </li>
                 {% endfor %}
                 {% if app.user %}
-                    <li class="menu-item login"><a href="{{ path('app_login') }}" title="Aller à : Item 4"><span class="material-icons">logout</span>Deconnexion</a></li>
+                    <li class="menu-item login"><a href="{{ path('app_logout') }}" title="Aller à : Item 4"><span class="material-icons">logout</span>Deconnexion</a></li>
                 {% else %}
-                        <li class="menu-item login"><a href="{{ path('app_logout') }}" title="Aller à : Item 4"><span class="material-icons">login</span>Connexion</a></li>
+                    <li class="menu-item login"><a href="{{ path('app_login') }}" title="Aller à : Item 4"><span class="material-icons">login</span>Connexion</a></li>
                 {% endif %}
 
             </ul>
