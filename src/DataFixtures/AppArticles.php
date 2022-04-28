@@ -144,7 +144,7 @@ class AppArticles extends Fixture
             $article -> setName($dataArticle["name"]);
             $article -> setSlug($dataArticle["slug"]);
             $article -> setContent($dataArticle["content"]);
-            $article -> addSlugCat($dataArticle["slug_subcat"]);
+            //$article -> addSlugCat($dataArticle["slug_subcat"]);
 
             $manager->persist($article);
             $manager->flush();
