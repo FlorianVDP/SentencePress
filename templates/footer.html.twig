@@ -1,9 +1,12 @@
 <footer>
-    <div class="wrapper-footer">
-        <div class="copyright">
-            <a href="https://www.linkedin.com/in/clemence-larrouy" title="LinkedIn de Clémence Larrouy">Clémence Larrouy</a>
-            <a href="https://www.linkedin.com/in/elisa-bourg" title="LinkedIn de Elisa Bourg">Elisa Bourg</a>
-            <a href="https://www.linkedin.com/in/florian-vander-put" title="LinkedIn de Florian Van der Put">Florian Van der Put</a>
+    <div class="wrapper-footer flex flex-wrap  justify-between">
+        <div class="wrapper-header">
+            <a href="{{ path('app_homepage') }}" class="logo"><img src="{{ asset('/assets/images/logos/logo-sentencepress-long-blanc.svg') }}"></a>
+        </div>
+        <div class="copyright flex flex-wrap justify-around w-1/2 px-6">
+            <a href="https://www.linkedin.com/in/clemence-larrouy" title="LinkedIn de Clémence Larrouy" class="text-white text-sm">Clémence Larrouy</a>
+            <a href="https://www.linkedin.com/in/elisa-bourg" title="LinkedIn de Elisa Bourg" class="text-white text-sm">Elisa Bourg</a>
+            <a href="https://www.linkedin.com/in/florian-vander-put" title="LinkedIn de Florian Van der Put" class="text-white text-sm">Florian Van der Put</a>
         </div>
     </div>
 </footer>

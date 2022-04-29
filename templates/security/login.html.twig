@@ -1,40 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}SentencePress | Se connecter{% endblock %}
 
 {% block body %}
+
+<div class="container mx-[4%] max-w-none md:mx-[10%] lg:mx-[16%] w-auto mt-12 font-Asap text-gray-dark text-app-l leading-normal ">
 <form method="post">
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="alert alert-danger text-red-600 mb-18">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se deconnecter</a>
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <h1 class="text-4xl uppercase font-bold mb-[2rem]">Se connecter</h1>
+    <h2 class=" text-sm uppercase font-bold"> Connectez-vous pour consulter participer à la creation d'article ou poster des commentaires </h2>
+
+    <div class="my-[1rem]">
+        <label for="inputEmail" class="block mb-2 text-sm font-bold text-gray-700">E-mail:</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" autocomplete="email" required autofocus class="form-control w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"/>
+    </div>
+
+    <div class="my-[1rem]">
+        <label for="inputPassword" class="block mb-2 text-sm font-bold text-gray-700"> Mot de passe:</label>
+        <input type="password" name="password" id="inputPassword" autocomplete="current-password" required class="form-control w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"/>
+    </div>
 
     <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
+           value="{{ csrf_token('authenticate') }}">
 
         <div class="checkbox mb-3">
             <label>
-                <input type="checkbox" name="_remember_me"> Remember me
+                <input type="checkbox" name="_remember_me"> Se souvenir de moi
             </label>
         </div>
 
+    <div>
+        <button class="btn btn-lg btn-primary my-[1rem] mt-[3rem] mx-auto block hover:opacity-80 " type="submit">Se connecter</button>
+    </div>
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
 </form>
-    <a href="{{ path('app_register') }}" title="Aller à : Item 4">S'enregistrer</a>
-{% endblock %}
+
+    <p class="text-xs font-semibold mb-[1rem] text-center mt-[2rem] mb-[5rem]"> Nouveau chez SentencePress ? créez un compte et rejoignez la communauté en vous   <a href="{{ path('app_register') }}" class="text-[#0085ba] underline hover:no-underline cursor-pointer">enregistrant ici</a></p>
+</div>
+    {% endblock %}

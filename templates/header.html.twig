@@ -2,7 +2,7 @@
 <header>
 
     <div class="wrapper-header">
-        <a href="{{ path('app_homepage') }}" class="logo"><img src="./assets/images/logos/logo-sentencepress-long-blanc.svg" alt="Logo SentencePress"></a>
+        <a href="{{ path('app_homepage') }}" class="logo"><img src="{{ asset('/assets/images/logos/logo-sentencepress-long-blanc.svg') }}" alt="Logo SentencePress"></a>
         <nav class="menu">
             <ul>
                 {% for menu in menuData[0] %}
@@ -15,7 +15,7 @@
                         {% if menu.subcategories %}
                         <ul class="sub-menu">
                             {% for subCat in menu.subcategories %}
-                            <li class="sub-menu-item"><a href="{{ path('app_category', { slug: subCat.slug } )}}" title="Aller à : {{ subCat.name }}">{{ subCat.name }}</a></li>
+                            <li class="sub-menu-item"><a href="{{ path('app_subcategory', { category_slug: menu.slug , slug: subCat.slug  } )}}" title="Aller à : {{ subCat.name }}">{{ subCat.name }}</a></li>
                             {% endfor %}
                         </ul>
                         {% endif %}

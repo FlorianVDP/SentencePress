@@ -165,7 +165,7 @@ header div.wrapper-header nav ul {
 header div.wrapper-header nav ul li.login {
   margin-left: 2em;
 }
-header div.wrapper-header nav ul li.login a {
+header div.wrapper-header nav ul li.login a , btn , button {
   background-color: #0085ba;
   padding: 0.5em 2em;
   color: #ffffff;
