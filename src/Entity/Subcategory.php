@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SubcategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SubcategoryRepository::class)]
@@ -27,6 +29,19 @@ class Subcategory
 
     #[ORM\ManyToOne(targetEntity: Article::class, inversedBy: 'slug_cat')]
     private $article;
+
+    #[ORM\OneToMany(mappedBy: 'subCategory', targetEntity: Article::class, orphanRemoval: true)]
+    private $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return (string) $this->name;
+    }
 
     public function getId(): ?int
     {
@@ -89,6 +104,36 @@ class Subcategory
     public function setArticle(?Article $article): self
     {
         $this->article = $article;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setSubCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getSubCategory() === $this) {
+                $article->setSubCategory(null);
+            }
+        }
 
         return $this;
     }
