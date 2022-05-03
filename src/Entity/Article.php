@@ -18,26 +18,29 @@ class Article
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $slug;
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $slug = null;
 
     #[ORM\Column(type: 'text')]
     private $content;
 
-
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Comment::class)]
     private $comment;
 
-    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Subcategory::class)]
-    private $slug_cat;
-
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'articles')]
-    private $author;
+    private ?User $author = null;
+
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category = null;
+
+    #[ORM\ManyToOne(targetEntity: Subcategory::class, inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Subcategory $subCategory = null;
 
     public function __construct()
     {
         $this->comment = new ArrayCollection();
-        $this->slug_cat = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -111,36 +114,6 @@ class Article
         return $this;
     }
 
-    /**
-     * @return Collection<int, Subcategory>
-     */
-    public function getSlugCat(): Collection
-    {
-        return $this->slug_cat;
-    }
-
-    public function addSlugCat(Subcategory $slugCat): self
-    {
-        if (!$this->slug_cat->contains($slugCat)) {
-            $this->slug_cat[] = $slugCat;
-            $slugCat->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSlugCat(Subcategory $slugCat): self
-    {
-        if ($this->slug_cat->removeElement($slugCat)) {
-            // set the owning side to null (unless already changed)
-            if ($slugCat->getArticle() === $this) {
-                $slugCat->setArticle(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getAuthor(): ?User
     {
         return $this->author;
@@ -149,6 +122,30 @@ class Article
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getSubCategory(): ?Subcategory
+    {
+        return $this->subCategory;
+    }
+
+    public function setSubCategory(?Subcategory $subCategory): self
+    {
+        $this->subCategory = $subCategory;
 
         return $this;
     }

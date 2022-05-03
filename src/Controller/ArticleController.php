@@ -11,15 +11,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArticleController extends AbstractController
 {
     #[Route('/article/{slug}', name: 'app_article')]
-    public function show(Article $article, ArticleRepository $articleRepository): Response
+    public function show(Article $article): Response
     {
-
-        $articles = $articleRepository->findAll();
-
         return $this->render('public/article/index.html.twig', [
             'controller_name' => 'ArticleController',
             'article' => $article,
-            'articles' => $articles
         ]);
     }
 }
