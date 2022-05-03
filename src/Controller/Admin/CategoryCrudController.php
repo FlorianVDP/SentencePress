@@ -2,19 +2,17 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Article;
+;
 use App\Entity\Category;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class ArticleCrudController extends AbstractCrudController
+class CategoryCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Article::class;
+        return Category::class;
     }
 
     public function configureFields(string $pageName): iterable
@@ -22,10 +20,7 @@ class ArticleCrudController extends AbstractCrudController
         return [
             yield TextField::new('name'),
             yield TextField::new('slug'),
-            yield AssociationField::new('category'),
-            yield AssociationField::new('subCategory'),
-            yield AssociationField::new('author'),
-            yield TextEditorField::new('content')->setTrixEditorConfig([
+            yield TextEditorField::new('description')->setTrixEditorConfig([
                 'blockAttributes' => [
                     'default' => ['tagName' => 'p'],
                     'heading1' => ['tagName' => 'h1'],
@@ -37,7 +32,6 @@ class ArticleCrudController extends AbstractCrudController
                     'attachment' => 'admin_file_field_attachment',
                 ],
             ]),
-
         ];
     }
 }
