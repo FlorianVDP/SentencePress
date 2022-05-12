@@ -1,50 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Article {% endblock %}
-
+{%  dump article %}
 {% block body %}
 
     <div class="container mx-[4%] max-w-none md:mx-[10%] lg:mx-[16%] w-auto mt-[0rem] lg:mt-12 font-Asap text-gray-dark text-app-l leading-normal ">
 
 
         <div class="presentation mb-16">
-            <h1 class="text-4xl  uppercase font-bold  pb-[2.5rem]"> Titre de l'article </h1>
+            <h1 class="text-4xl  uppercase font-bold  pb-[2.5rem]"> {{article.name}}</h1>
               <div class="flex border-t border-solid  border-[#0085ba] pt-4 pb-12 lg:flex justify-between  text-xs" >
                   <div class="flex justify-between w-[30%] ">
                       <span>
-                           <svg class="float-left mr-2 h-4" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 13.311 14.623">
-                                    <g transform="translate(-3.75 -2.25)">
-                                        <path d="M5.812,6H15a1.312,1.312,0,0,1,1.312,1.312V16.5A1.312,1.312,0,0,1,15,17.811H5.812A1.312,1.312,0,0,1,4.5,16.5V7.312A1.312,1.312,0,0,1,5.812,6Z"
-                                              transform="translate(0 -1.688)" fill="none" stroke="#0085ba"
-                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                                        <path d="M24,3V5.625"
-                                              transform="translate(-10.97 0)" fill="none" stroke="#0085ba"
-                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                                        <path d="M12,3V5.625"
-                                              transform="translate(-4.219 0)" fill="none" stroke="#0085ba"
-                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                                        <path d="M4.5,15H16.311"
-                                              transform="translate(0 -6.751)" fill="none" stroke="#0085ba"
-                                              stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                                    </g>
-                                </svg>
-                            <span> Date </span>
-                      </span>
-                      <span> par : Auteur </span>
+                          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAq0lEQVQ4jdXQP45BURzF8Q+TvGj8aVRoZjlCiGR2YCnysAT7MMUUE4lNELU3hZIFmMJVeZen45vc5tx7zvndH69Kgjn+kGEWtMLMsEQLbXxj+kxAFoxXOkG7ofxE6DlP/Ig8bmKMNepY4Ae/RdsSlz9n2CMVWWJsgi6+8IkKSjhgV6Q9xQYDVMMZYovJI3M/mBs5d40Q0rsXsArNMUYeLPLkMnKMGo73At6Qfy/0G2JPjEeQAAAAAElFTkSuQmCC" class="inline"/>par : {{article.author}} </span>
                   </div>
                   <div class="flex justify-between w-[30%] ">
-                      <span> Categorie </span>
-                      <span> Sous categorie</span>
+                      <span class="inline ">
+                          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAnElEQVQ4jc3SPQrCQBCG4Yegdiqk9VB2NnobgwfxCIKteCQtBLfwp0j8S9Rs1MIPPtgZdl9mdoZ/0QwBJxyxRrcJICAtzgnmBTRap1I8wK7IP3NA9g5QpxT7bwDXN0kp2cESB6/Lvxi0SoBRAW3Lp1FbQTlYYBzXQRXQwwb9JoD7PxjKF2gbCXhQwAqTyPuVMWZuqxzjgOknlf5eZ8pPOEAe2yXbAAAAAElFTkSuQmCC" class="inline"/>
+                          {{article.category}} </span>
+                      <span class="inline ">
+                       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAcklEQVQ4jc2SMQqAMAxFn+IJeh4H8WqKd3V3qUs6aEFKWtIK4ocsoXn5DR/+pg3wgCR1AJMF4AGn9AXYLRAp9McbMrcCnt+pBmTf9IaBogbrJqCrBagDrQ6ysNcO0iOe6EGKclxhy2pFj3IsDywWZ98pAMhZIVY7k+dVAAAAAElFTkSuQmCC" class="inline"/>
+                          {{article.subCategory}}</span>
                   </div>
               </div>
             <div class=" content leading-[2rem]">
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              {{  article.content|raw }}
             </div>
         </div>
 
         <div class="mt-16">
-            <h2 class="text-2xl  uppercase font-bold  pb-[2.5rem]"> Les Articles en relation avec MaCategorie </h2>
+            <h2 class="text-2xl  uppercase font-bold  pb-[2.5rem]"> Les Articles en relation avec {{article.category}} </h2>
             <div class="article mb-12">
                 {{ include('public/include/_list_article.html.twig') }}
             </div>

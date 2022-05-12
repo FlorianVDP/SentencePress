@@ -21,7 +21,7 @@ class Subcategory
     #[ORM\Column(type: 'string', length: 255)]
     private $slug;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'text')]
     private $description;
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'subcategories')]
