@@ -21,7 +21,7 @@ class Category
     #[ORM\Column(type: 'string', length: 255)]
     private $slug;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'text')]
     private $description;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Subcategory::class)]
