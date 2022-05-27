@@ -20,12 +20,12 @@ class ArticleCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            yield TextField::new('name'),
-            yield TextField::new('slug'),
-            yield AssociationField::new('category'),
-            yield AssociationField::new('subCategory'),
-            yield AssociationField::new('author'),
-            yield TextEditorField::new('content')->setTrixEditorConfig([
+            yield TextField::new('name' , 'Titre'),
+            yield TextField::new('slug' , 'Slug'),
+            yield AssociationField::new('category', 'Catégorie'),
+            yield AssociationField::new('subCategory' , 'Sous-catégorie'),
+            yield AssociationField::new('author' , 'Auteur'),
+            yield TextEditorField::new('content' , 'Contenu de l\'article')->setTrixEditorConfig([
                 'blockAttributes' => [
                     'default' => ['tagName' => 'p'],
                     'heading1' => ['tagName' => 'h1'],
@@ -36,6 +36,7 @@ class ArticleCrudController extends AbstractCrudController
                 'css' => [
                     'attachment' => 'admin_file_field_attachment',
                 ],
+
             ]),
 
         ];
