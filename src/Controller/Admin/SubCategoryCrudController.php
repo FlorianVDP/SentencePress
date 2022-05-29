@@ -18,10 +18,10 @@ class SubCategoryCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            yield TextField::new('name'),
-            yield TextField::new('slug'),
-            yield AssociationField::new('category'),
-            yield TextEditorField::new('description')->setTrixEditorConfig([
+            yield TextField::new('name' , 'Nom'),
+            yield TextField::new('slug' , 'Slug'),
+            yield AssociationField::new('category', 'Catégorie liée'),
+            yield TextEditorField::new('description' , 'Description')->setTrixEditorConfig([
                 'blockAttributes' => [
                     'default' => ['tagName' => 'p'],
                     'heading1' => ['tagName' => 'h1'],

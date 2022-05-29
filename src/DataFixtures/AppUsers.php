@@ -21,7 +21,7 @@ class AppUsers extends Fixture
             [
                 "name" => "Florian",
                 "password" => "florian",
-                "surname" => "Beebulle",
+                "pseudo" => "Beebulle",
                 "mail" => "mrvdpflorian@gmail.com",
                 "role" => ["ROLE_ADMIN"],
                 "birth_date" => new \DateTime("09-02-1997"),
@@ -29,7 +29,7 @@ class AppUsers extends Fixture
             [
                 "name" => "Clémence",
                 "password" => "clemence",
-                "surname" => "DetectiveChanya",
+                "pseudo" => "DetectiveChanya",
                 "mail" => "clemence.larrouy@gmail.com",
                 "role" => ["ROLE_ADMIN"],
                 "birth_date" => new \DateTime("16-08-1993"),
@@ -37,7 +37,7 @@ class AppUsers extends Fixture
             [
                 "name" => "admin",
                 "password" => "admin",
-                "surname" => "admin",
+                "pseudo" => "admin",
                 "mail" => "admin@sentencePress.com",
                 "role" => ["ROLE_ADMIN"],
                 "birth_date" => new \DateTime("04-05-1983"),
@@ -47,7 +47,7 @@ class AppUsers extends Fixture
 
             $users = new User();
             $users->setName($user["name"]);
-            $users->setSurname($user["surname"]);
+            $users->setPseudo($user["pseudo"]);
             $users->setPassword($user["password"]);
             $users->setPassword(
                 $this->passwordHasher->hashPassword(

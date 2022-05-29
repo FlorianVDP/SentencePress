@@ -13,8 +13,6 @@ class Comment
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'date')]
-    private $b_user;
 
     #[ORM\Column(type: 'date')]
     private $date;
@@ -25,22 +23,15 @@ class Comment
     #[ORM\ManyToOne(targetEntity: Article::class, inversedBy: 'comment')]
     private $article;
 
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'comments')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $author;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getBUser(): ?User
-    {
-        return $this->b_user;
-    }
-
-    public function setBUser(?User $b_user): self
-    {
-        $this->b_user = $b_user;
-
-        return $this;
-    }
 
     public function getDate(): ?\DateTimeInterface
     {
@@ -77,4 +68,18 @@ class Comment
 
         return $this;
     }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+
 }
