@@ -18,7 +18,7 @@ class CommentCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            yield AssociationField::new('b_user','Pseudo membre'),
+            yield AssociationField::new('author','Pseudo membre'),
             yield AssociationField::new('article','Article'),
             yield DateTimeField::new('date')->setFormat('hh:mm aaa dd MMM yy'),
             yield TextEditorField::new('content' , 'Contenu du commentaire')
