@@ -34,16 +34,20 @@
            {%  if article.comment %}
             <div class="article mb-12">
                 {% for com in article.comment %}
-                    <div>
-                        <span>
-                             <span> {{  com.author.pseudo }}</span>
-                             <span>{{  com.date  | date('j. F Y') }} </span>
+                    <div class="bg-slate-100 p-[2rem] border-b border-gray-border rounded-lg  shadow-lg mb-4">
+                        <span class="flex items-center justify-between py-2">
+                             <span>
+                                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAq0lEQVQ4jdXQP45BURzF8Q+TvGj8aVRoZjlCiGR2YCnysAT7MMUUE4lNELU3hZIFmMJVeZen45vc5tx7zvndH69Kgjn+kGEWtMLMsEQLbXxj+kxAFoxXOkG7ofxE6DlP/Ig8bmKMNepY4Ae/RdsSlz9n2CMVWWJsgi6+8IkKSjhgV6Q9xQYDVMMZYovJI3M/mBs5d40Q0rsXsArNMUYeLPLkMnKMGo73At6Qfy/0G2JPjEeQAAAAAElFTkSuQmCC" class="inline"/>
+                                 {{  com.author.pseudo }}</span>
+                             <span class="text-xs mr-2">{{  com.date  | date('j. F Y') }} </span>
                          </span>
                         <p> {{  com.content|raw }}</p>
                     </div>
                 {% endfor %}
             </div>
             {%  endif %}
+
+            <a class="bg-[#0085ba] px-[2rem] py-[0.5rem] text-white font-bold rounded-full block m-auto w-[16rem] " href="{{ path('app_comment', { slug: article.slug }) }}" title="écrire un commentaire"> Ajouter un commentaire </a>
         </div>
 
 
