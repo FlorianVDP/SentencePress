@@ -1,0 +1,28 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %} Commenter {% endblock %}
+
+{% block body %}
+
+    <div class="container mx-[4%] max-w-none md:mx-[10%] lg:mx-[16%] w-auto mt-[0rem] lg:mt-12 font-Asap text-gray-dark text-app-l leading-normal ">
+
+
+        <div class="presentation mb-16">
+            <h1 class="text-4xl  uppercase font-bold  pb-[2.5rem]"> Ecrire un commentaire</h1>
+
+
+        </div>
+
+
+        <div class="mt-16">
+            <h2 class="text-2xl  uppercase font-bold  pb-[2.5rem]"> Les Articles en relation avec {{article.category}} </h2>
+            <div class="article mb-12">
+                {{ include('public/include/_list_article.html.twig') }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
