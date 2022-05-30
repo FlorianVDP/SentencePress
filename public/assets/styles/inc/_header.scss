@@ -26,7 +26,24 @@ header{
         align-items: center;
         justify-content: center;
         li{
-          &.login{
+          &.account{
+            margin-left: 2em;
+            a{
+              background-color: $mainColor;
+              padding: .5em;
+              color: $blanc;
+              border-radius: 100px 10px 10px 100px;
+              display: flex;
+              align-items: center;
+              gap: 1em;
+              font-weight: 500;
+              &:hover, &:focus{
+                transition: all ease-in 150ms;
+                background-color: lighten($mainColor, 5);
+              }
+            }
+          }
+          &.login, &.logout{
             margin-left: 2em;
             a{
               background-color: $mainColor;
@@ -41,6 +58,12 @@ header{
                 transition: all ease-in 150ms;
                 background-color: lighten($mainColor, 5);
               }
+            }
+          }
+          &.logout{
+            margin-left: .5em;
+            a{
+              border-radius: 10px 100px 100px 10px;
             }
           }
           &.sub-menu-parent{
