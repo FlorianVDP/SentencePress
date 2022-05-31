@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Subcategory;
 use App\Entity\Category;
 use App\Repository\ArticleRepository;
+use App\Service\ArticleService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,11 +16,14 @@ class SubcategoryController extends AbstractController
     #[Route('/category/{category_slug}/{slug}', name: 'app_subcategory')]
     #[ParamConverter('category', options: ['mapping' => ['category_slug' => 'slug']])]
     #[ParamConverter('subcategory', options: ['mapping' => ['slug' => 'slug']])]
-    public function show(Category $category, Subcategory $subcategory, ArticleRepository $articleRepository): Response
+    public function show(Category $category, Subcategory $subcategory, ArticleRepository $articleRepository, ArticleService $articleService): Response
     {
+        $articles = $articleService->Articleview();
+
         return $this->render('public/subcategory/index.html.twig', [
             'category' => $category,
             'subcategory' => $subcategory,
+            'articles' => $articles,
         ]);
     }
 }
