@@ -162,10 +162,27 @@ header div.wrapper-header nav ul {
   align-items: center;
   justify-content: center;
 }
-header div.wrapper-header nav ul li.login {
+header div.wrapper-header nav ul li.account {
   margin-left: 2em;
 }
-header div.wrapper-header nav ul li.login a , btn , button {
+header div.wrapper-header nav ul li.account a {
+  background-color: #0085ba;
+  padding: 0.5em;
+  color: #ffffff;
+  border-radius: 100px 10px 10px 100px;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-weight: 500;
+}
+header div.wrapper-header nav ul li.account a:hover, header div.wrapper-header nav ul li.account a:focus {
+  transition: all ease-in 150ms;
+  background-color: #0097d4;
+}
+header div.wrapper-header nav ul li.login, header div.wrapper-header nav ul li.logout {
+  margin-left: 2em;
+}
+header div.wrapper-header nav ul li.login a, header div.wrapper-header nav ul li.logout a {
   background-color: #0085ba;
   padding: 0.5em 2em;
   color: #ffffff;
@@ -175,9 +192,15 @@ header div.wrapper-header nav ul li.login a , btn , button {
   gap: 1em;
   font-weight: 500;
 }
-header div.wrapper-header nav ul li.login a:hover, header div.wrapper-header nav ul li.login a:focus {
+header div.wrapper-header nav ul li.login a:hover, header div.wrapper-header nav ul li.login a:focus, header div.wrapper-header nav ul li.logout a:hover, header div.wrapper-header nav ul li.logout a:focus {
   transition: all ease-in 150ms;
   background-color: #0097d4;
+}
+header div.wrapper-header nav ul li.logout {
+  margin-left: 0.5em;
+}
+header div.wrapper-header nav ul li.logout a {
+  border-radius: 10px 100px 100px 10px;
 }
 header div.wrapper-header nav ul li.sub-menu-parent {
   position: relative;
