@@ -18,6 +18,11 @@ class CommentController extends AbstractController
     #[Route('/article/{slug}/comment', name: 'app_comment')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager , String $slug): Response
     {
+        // créer le formulaire
+        // créer le nouveau commentaire
+        // vérification du formulaire
+        // Associer l'article, le current User et la date du jour au commentaire créé juste au dessus
+
         $comment = new Comment();
         $form = $this->createForm(RegistrationFormType::class, $comment);
         $form->handleRequest($request);
