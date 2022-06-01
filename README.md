@@ -46,3 +46,11 @@ Update forcé de la base
 
 Mettre en place les fixtures
 ```php bin/console d:f:load```
+
+## Utilisation 
+```créer un compte et s'enregister```
+```se connecter et se deconecter```
+``` backend : écrire des articles sur le blog```
+``` backend : gérer les commentaires```
+``` backend : modifier les sous catégories```
+
