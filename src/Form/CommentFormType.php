@@ -22,7 +22,7 @@ class CommentFormType extends AbstractType
     {
         $builder
 
-            ->add('name', TextType::class, [
+            ->add('content', TextType::class, [
                 'attr' => ['placeholder' => 'Commentaire'],
                 'label' => 'Votre commentaire',
                 'constraints' => [

@@ -15,6 +15,7 @@ class ArticleService
     {
         return $this->articleRepository->findAll();
     }
+    
     public function Articleviewcategory(): array
     {
         return $this->articleRepository->findBy(['category']);
