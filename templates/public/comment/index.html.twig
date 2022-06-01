@@ -11,13 +11,19 @@
 
         <div class="presentation mb-16">
             <h1 class="text-4xl  uppercase font-bold  pb-[2.5rem]"> Ecrire un commentaire</h1>
+            {{ form_start(commentForm) }}
 
+            <div class="my-[1rem]">
+                <p class="block mb-2 text-sm font-bold text-gray-700">{{ form_label(commentForm.content) }} </p>
+                {{ form_widget(commentForm.content,  { 'attr': {'class': 'w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'} }) }}
+            </div>
 
+            {{ form_end(commentForm) }}
         </div>
 
 
         <div class="mt-16">
-            <h2 class="text-2xl  uppercase font-bold  pb-[2.5rem]"> Les Articles en relation avec {{article.category}} </h2>
+            <h2 class="text-2xl  uppercase font-bold  pb-[2.5rem]"> Les Articles en relation </h2>
             <div class="article mb-12">
                 {{ include('public/include/_list_article.html.twig') }}
             </div>

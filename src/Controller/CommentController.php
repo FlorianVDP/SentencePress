@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Entity\Article;
+use App\Form\CommentFormType;
 use App\Form\RegistrationFormType;
+use App\Service\ArticleService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +18,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class CommentController extends AbstractController
 {
     #[Route('/article/{slug}/comment', name: 'app_comment')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager , String $slug): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager , String $slug , ArticleService $articleService): Response
     {
         // créer le formulaire
         // créer le nouveau commentaire
@@ -24,7 +26,7 @@ class CommentController extends AbstractController
         // Associer l'article, le current User et la date du jour au commentaire créé juste au dessus
 
         $comment = new Comment();
-        $form = $this->createForm(RegistrationFormType::class, $comment);
+        $form = $this->createForm(CommentFormType::class, $comment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -36,8 +38,11 @@ class CommentController extends AbstractController
             return $this->redirectToRoute('app_article');
         }
 
+        $articles = $articleService->Articleview();
+
         return $this->render('public/comment/index.html.twig', [
             'commentForm' => $form->createView(),
+            'articles' => $articles,
         ]);
     }
 }
